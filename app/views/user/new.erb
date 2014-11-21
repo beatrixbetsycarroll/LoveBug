@@ -32,6 +32,13 @@
   <input name="user[height]" type="text">
   <h3>Weight:</h3>
   <input name="user[weight]" type="text">
+
+   <select name="user[std]">
+      <% STD.all.each do |std|%>
+        <option value="<%= std.id%>"><%= std.name%></option>
+      <% end %>
+  </select>
+
   <input type="submit" value="Create Profile">
 </form>
 
