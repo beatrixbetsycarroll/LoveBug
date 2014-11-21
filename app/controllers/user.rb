@@ -25,6 +25,7 @@ post '/user' do
 end
 
 get '/user/login' do
+  redirect("/") if session[:user_id]
   erb :'/user/login'
 end
 
@@ -39,7 +40,7 @@ post '/user/login' do
     session[:user_id] = user.id
     redirect("user/#{user.id}")
   else
-    session[:errors] = "non-existent user" # WORK IN PROGRESS
+    session[:errors] = "non-existent user"
     redirect('/')
   end
 end
