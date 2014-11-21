@@ -18,6 +18,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :photo
       t.integer :height
       t.integer :weight
+
+      t.timestamps
     end
   end
 end
