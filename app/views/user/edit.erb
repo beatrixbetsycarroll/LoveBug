@@ -1,0 +1,39 @@
+<div class="container">
+<!-- <%= display_errors %> -->
+
+<form action="user/<%= @user.id %>/edit" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <h3>First Name:</h3>
+  <input name="user[first_name]" type="text" value="<%= @user.first_name %>">
+  <h3>Last Name:</h3>
+  <input name="user[last_name]" type="text" value="<%= @user.last_name %>">
+  <h3>E-mail:</h3>
+  <input name="user[email]" type="text" value="<%= @user.email %>">
+  <h3>Username:</h3>
+  <input name="user[user_name]" type="text" value="<%= @user.user_name %>">
+  <h3>Password:</h3>
+  <input name="user[password]" type="text" value="<%= @user.password %>">
+  <h3>Location:</h3>
+  <input name="user[location]" type="text" value="<%= @user.location %>">
+  <h3>Hair Color:</h3>
+  <input name="user[hair_color]" type="text" value="<%= @user.hair_color %>">
+  <h3>Eye Color:</h3>
+  <input name="user[eye_color]" type="text" value="<%= @user.eye_color %>">
+  <h3>Race:</h3>
+  <input name="user[race]" type="text" value="<%= @user.race %>">
+  <h3>Religion:</h3>
+  <input name="user[religion]" type="text" value="<%= @user.religion %>">
+  <h3>Age:</h3>
+  <input name="user[age]" type="text" value="<%= @user.age %>">
+  <h3>About:</h3>
+  <textarea name="user[about]" type="text"><%= @user.about %></textarea>
+  <h3>Photo:</h3>
+  <input name="user[photo]" type="text" value="<%= @user.photo %>">
+  <h3>Height:</h3>
+  <input name="user[height]" type="text" value="<%= @user.height %>">
+  <h3>Weight:</h3>
+  <input name="user[weight]" type="text" value="<%= @user.weight %>">
+  <input type="submit" value="Edit Profile">
+</form>
+
+</div>
