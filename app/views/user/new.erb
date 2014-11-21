@@ -1,4 +1,5 @@
 <div class="container">
+<%= display_errors %>
 
 <form action="/user" method="POST">
   <h3>First Name:</h3>
@@ -31,6 +32,12 @@
   <input name="user[height]" type="text">
   <h3>Weight:</h3>
   <input name="user[weight]" type="text">
+
+  <select name="std">
+     <% Std.all.each do |std|%>
+       <option value="<%= std.id%>"><%= std.name%></option>
+     <% end %>
+ </select>
 
   <input type="submit" value="Create Profile">
 </form>
