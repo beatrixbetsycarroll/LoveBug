@@ -1,20 +1,28 @@
-get '/user/:id' do
-
-  erb :'user/show'
+get '/' do
+  if session[:user_id]
+    redirect("user/#{session[:user_id]}")
+  else
+  erb :'/user/login'
+  end
 end
 
 get '/user/new' do
-  erb :'user/new'
+  erb :'/user/new'
 end
 
-post '/user/new' do
+post '/user' do
+  p params
   @user = User.new(params[:user])
     if @user.save
-      redirect("user/#{@user.id}")
+      redirect("/user/#{@user.id}")
     else
       session[:errors] = user.errors.messages
-      redirect("user/new")
+      redirect("/user/new")
     end
+end
+
+get '/user/:id' do
+  erb :'/user/show'
 end
 
 get '/user/login' do
@@ -40,7 +48,7 @@ end
 
 get '/user/:id/edit' do |id|
   if session[:user_id] == id
-    erb: 'user/edit'
+    erb :'user/edit'
   else
     redirect('/')
   end
