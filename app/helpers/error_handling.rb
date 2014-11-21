@@ -1,7 +1,6 @@
-def display_AR_errors(hash)
-  nil
-end
+def display_errors
+  errors = session[:errors]
+  session[:errors] = nil
 
-def error(msg)
-  msg
+  return errors
 end
