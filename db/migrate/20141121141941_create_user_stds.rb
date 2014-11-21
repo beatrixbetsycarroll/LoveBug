@@ -5,5 +5,6 @@ class CreateUserStds < ActiveRecord::Migration
       t.references  :std
 
       t.timestamps
+    end
   end
 end
