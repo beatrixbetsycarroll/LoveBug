@@ -11,8 +11,6 @@ get '/user/new' do
 end
 
 post '/user' do
-  p params
-  p session
   @user = User.new(params[:user])
   @user.stds << Std.find(params[:std])
     if @user.save
@@ -45,12 +43,17 @@ post '/user/login' do
   end
 end
 
-get '/user/:id' do
-  erb :'/user/show'
+get '/user/:id' do |id|
+  @page_owner = User.find(id)
+  if id.to_i == session[:user_id]
+    erb :'/user/profile'
+  else
+    erb :'/user/show'
+  end
 end
 
 get '/user/:id/edit' do |id|
-  if session[:user_id] == id
+  if session[:user_id] == id.to_i
     erb :'user/edit'
   else
     redirect('/')

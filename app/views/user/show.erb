@@ -1,3 +1,20 @@
 <div class="container">
 
+  <div><h1><%= @page_owner.user_name %></h1></div>
+  <div id="user_info">
+    <p>About: <%= @page_owner.about %></p>
+    <p>Height: <%= @page_owner.height %> </p>
+    <p>Age: <%= @page_owner.age %></p>
+    <p>Hair color: <%= @page_owner.hair_color%></p>
+    <p>Eye color: <%= @page_owner.eye_color %></p>
+    <p>Weight: <%= @page_owner.weight %></p>
+    <p>Race: <%= @page_owner.race %></p>
+    <p>Religion: <%= @page_owner.religion %></p>
+  </div>
+
+  <div><a href="/message/<%= @page_owner.id %>/new">Send a message to <%=@page_owner.user_name %>!</a></div>
+  <div><a href="/match/all">Back to matches</a></div>
+  <div><a href="/">Home</a></div>
+  <div><a href="/user/logout">Logout</a></div>
+
 </div>

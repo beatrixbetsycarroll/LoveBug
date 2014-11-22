@@ -1,0 +1,16 @@
+
+<div class ="container">
+  <h2>Matches in your area...</h2>
+
+<% if !@matches %>
+<div><h2>Sorry, no matches in your area!</h2></div>
+<% else %>
+  <% @matches.each do |match| %>
+    <div><a href="/user/<%=match.id%>"><%=match.user_name%></a>- Age<%=match.age%></div><br>
+    <% end %>
+<% end %>
+
+  <div><a href="/">Home</a></div>
+  <div><a href="/user/logout">Logout</a></div>
+
+</div>

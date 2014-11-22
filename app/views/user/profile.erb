@@ -1,0 +1,14 @@
+<div class="container">
+
+<h1><%=@page_owner.user_name%></h1>
+<h2><%=@page_owner.first_name%> <%=@page_owner.last_name %></h2>
+
+  <div><img src= "<%=@page_owner.photo%>"></div>
+
+  <div><a href="/message/all">Messages</a></div>
+
+  <div><a href="/match/all">Browse matches in your area</a></div>
+
+  <div><a href="/user/logout">Logout</a></div>
+
+</div>

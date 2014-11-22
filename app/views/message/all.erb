@@ -1,0 +1,22 @@
+<div class="container">
+<% if !@messages %>
+<div><h2>Sorry, no messages</h2></div>
+<% else %>
+  <% @messages.each do |message| %>
+    <% sender = User.find(message.sender_id) %>
+    <div> Message from  <%=sender.user_name%></div>
+    <div> <%=message.created_at %></div><br>
+    <div> <%=message.content %></div><br>
+
+    <div>Reply to this message:</div>
+    <form action="/message/<%= message.sender_id %>/new" method="POST">
+      <textarea name="message[content]"></textarea>
+      <input type="submit" value="Send">
+    </form>
+    <% end %>
+  <% end %>
+
+  <div><a href="/">Home</a></div>
+  <div><a href="/user/logout">Logout</a></div>
+
+</div>
