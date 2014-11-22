@@ -1,5 +1,5 @@
 <div class="container">
-<% if !@messages %>
+<% if @messages.empty? %>
 <div><h2>Sorry, no messages</h2></div>
 <% else %>
   <% @messages.each do |message| %>
