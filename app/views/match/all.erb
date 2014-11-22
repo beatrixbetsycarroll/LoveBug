@@ -2,7 +2,7 @@
 <div class ="container">
   <h2>Matches in your area...</h2>
 
-<% if !@matches %>
+<% if @matches.empty? %>
 <div><h2>Sorry, no matches in your area!</h2></div>
 <% else %>
   <% @matches.each do |match| %>
