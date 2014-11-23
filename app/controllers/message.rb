@@ -1,5 +1,6 @@
 get '/message/all' do
-  @messages = Message.where(receiver_id: session[:user_id])
+  @user_messages = Message.where("sender_id = ? OR receiver_id = ?", session[:user_id], session[:user_id])
+  @conversation_participant = @user_messages.map { |msg| [msg.sender, msg.receiver] }.flatten.uniq - [User.find(session[:user_id])]
   # is this equiv?
   # @messages = User.find(session[:id]).messages
   erb :'message/all'
