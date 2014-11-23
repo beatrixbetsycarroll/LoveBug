@@ -47,6 +47,7 @@ end
 
 get '/user/:id/edit' do |id|
   protected!
+  @user = User.find(id)
   if session[:user_id] == id.to_i
     erb :'user/edit'
   else
@@ -57,6 +58,7 @@ end
 put '/user/:id/edit' do |id|
   protected!
   @user = User.find(id)
+  @user.stds << Std.find(params[:std].to_i)
   @user.update(params[:user])
   redirect("user/#{@user.id}")
 end

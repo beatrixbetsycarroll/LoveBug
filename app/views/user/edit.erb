@@ -1,7 +1,7 @@
 <div class="container">
 <%= display_errors %>
 
-<form action="user/<%= @user.id %>/edit" method="POST">
+<form action="/user/<%= @user.id %>/edit" method="POST">
   <input type="hidden" name="_method" value="PUT">
   <h3>First Name:</h3>
   <input name="user[first_name]" type="text" value="<%= @user.first_name %>">
@@ -34,13 +34,13 @@
   <h3>Weight:</h3>
   <input name="user[weight]" type="text" value="<%= @user.weight %>">
 
-  <select name="user[std]">
-     <% STD.all.each do |std|%>
+  <select name="std">
+     <% Std.all.each do |std|%>
        <option value="<%= std.id%>"><%= std.name%></option>
      <% end %>
  </select>
 
-  <input type="submit" value="Edit Profile">
+  <input type="submit" value="Update Profile">
 </form>
 
 </div>
