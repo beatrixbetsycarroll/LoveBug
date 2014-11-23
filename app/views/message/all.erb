@@ -10,7 +10,7 @@
 
     <% conversation_thread.each do |message| %>
       <% sender = message.sender%>
-      <div> <%=sender.user_name%>(<%= message.created_at %>): <%=message.content %></div><br>
+      <div> <b><%=sender.user_name%></b> [<%= message.created_at.strftime('%b %m, %a  %l:%M %p') %>]: <%=message.content %></div><br>
     <% end %>
 
     <div>Reply to this message:</div>
