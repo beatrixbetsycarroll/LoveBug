@@ -36,6 +36,7 @@ post '/user/login' do
 end
 
 get '/user/:id' do |id|
+  protected!
   @page_owner = User.find(id)
   if id.to_i == session[:user_id]
     erb :'/user/profile'
@@ -45,6 +46,7 @@ get '/user/:id' do |id|
 end
 
 get '/user/:id/edit' do |id|
+  protected!
   if session[:user_id] == id.to_i
     erb :'user/edit'
   else
@@ -53,12 +55,14 @@ get '/user/:id/edit' do |id|
 end
 
 put '/user/:id/edit' do |id|
+  protected!
   @user = User.find(id)
   @user.update(params[:user])
   redirect("user/#{@user.id}")
 end
 
 get '/user/:id/deactivate' do
+  protected!
   erb :'user/deactivate'
 end
 
