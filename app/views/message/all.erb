@@ -5,7 +5,7 @@
 
   <h2><%=  User.find(session[:user_id]).user_name%>'s Messages</h2>
   <% @conversation_participant.each do |user| %>
-    <% conversation_thread = @user_messages.select { |message| [message.sender, message.receiver].include? user } %>
+    <% conversation_thread = @user_messages.select { |message| [message.sender, message.receiver].include? user }.sort_by(&:created_at) %>
     <h3><a href=<%= user_page_url(user) %>><%= user.user_name %></a></h3>
 
     <% conversation_thread.each do |message| %>
