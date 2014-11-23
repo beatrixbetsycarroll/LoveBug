@@ -1,5 +1,5 @@
 get '/match/all' do
   @user = User.find(session[:user_id])
-  @matches = User.where(location: @user.location).select { |match| match.stds.first.name == @user.stds.first.name }
+  @matches = User.where("location = ? AND id != ?", @user.location, @user.id).select { |match| match.stds == @user.stds }
   erb :'match/all'
 end
