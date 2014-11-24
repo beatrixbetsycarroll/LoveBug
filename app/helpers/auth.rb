@@ -12,3 +12,5 @@ def check_trustworthiness(user)
   return false if first_check.empty? && second_check.empty?
   true
 end
+
+# IS THIS WORKING??
