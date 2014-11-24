@@ -2,6 +2,10 @@
 
   <div><h1><%= @page_owner.user_name %></h1></div>
   <div id="user_info">
+    <% if check_trustworthiness(@page_owner)%>
+      <h3><%= @page_owner.first_name %> <%= @page_owner.last_name %></h3>
+      <div><img src= "<%=@page_owner.photo%>"></div>
+    <% end %>
     <p>About: <%= @page_owner.about %></p>
     <p>Height: <%= @page_owner.height %> </p>
     <p>Age: <%= @page_owner.age %></p>
@@ -13,7 +17,11 @@
   </div>
 
   <div><a href="/message/<%= @page_owner.id %>/new">Send a message to <%=@page_owner.user_name %>!</a></div>
-  <div><a href="/match/all">Back to matches</a></div>
+  <% if !check_trustworthiness(@page_owner)%>
+    <div><form action="/trust/<%= session[:user_id]%>/<%= @page_owner.id%>" method="POST">
+      <input type="submit" value="Trust User">
+    </form></div>
+  <% end %>
   <div><a href="/">Home</a></div>
   <div><a href="/user/logout">Logout</a></div>
 

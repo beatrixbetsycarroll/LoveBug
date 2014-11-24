@@ -8,6 +8,12 @@ religion_choices = %w(scientologist pastafarian luvism)
 genders = ["male", "female"]
 
 
+# Hackiness
+
+User.create(user_name: "LoveBug", password: "hack")
+
+
+
 # create users
 users = []
 20.times do
