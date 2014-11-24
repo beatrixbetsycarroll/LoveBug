@@ -1,7 +1,85 @@
-<div class="container">
+
 <%= display_errors %>
 
+<div class = "background">
+  <h1>Register now!</h1>
 <form action="/user" method="POST">
+  <div class="col-md-6 form-group">
+    <input name="user[first_name]" class="form-control" type="text" placeholder="First Name" />
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[last_name]" class="form-control" type="text" placeholder="Last Name"/>
+  </div>
+  <div class="col-md-6 form-group" class="dropdown">
+    Gender:
+    <select name="user[gender]" >
+      <option value="male">male</option>
+      <option value="female">female</option>
+    </select>
+  </div>
+  <div class="col-md-6 form-group" class="dropdown">
+    Looking For:
+    <select name="user[looking_for]">
+      <option value="male">male</option>
+      <option value="female">female</option>
+    </select>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[email]" class="form-control" type="text" placeholder="Email"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[user_name]" class="form-control" type="text" placeholder="Username"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[password]" class="form-control" type="text" placeholder="Password"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[location]" class="form-control" type="text" placeholder="Location"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[hair_color]" class="form-control" type="text" placeholder="Hair Color"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[eye_color]" class="form-control" type="text" placeholder="Eye Color"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[race]" class="form-control" type="text" placeholder="Race"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[religion]" class="form-control" type="text" placeholder="Religion"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[age]" class="form-control" type="text" placeholder="Age"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[about]" class="form-control" type="text" placeholder="About"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[photo]" class="form-control" type="text" placeholder="Photo"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[height]" class="form-control" type="text" placeholder="Height"/>
+  </div>
+  <div class="col-md-6 form-group">
+    <input name="user[weight]" class="form-control" type="text" placeholder="Weight"/>
+  </div>
+
+  <div class="col-md-6 form-group">
+    Select Your STI
+   <select name="std">
+     <% Std.all.each do |std|%>
+       <option value="<%= std.id%>"><%= std.name%></option>
+     <% end %>
+   </select>
+  </div>
+
+  <span class="clearfix">
+  <input type="submit" value="Create Profile" class="btn btn-danger">
+</form>
+</div>
+
+
+<!-- <form action="/user" method="POST">
   <h3>First Name:</h3>
   <input name="user[first_name]" type="text">
   <h3>Last Name:</h3>
@@ -50,6 +128,7 @@
  </select>
 
   <input type="submit" value="Create Profile">
-</form>
+</form> -->
 
-</div>
+
+
