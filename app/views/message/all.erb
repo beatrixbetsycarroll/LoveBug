@@ -10,7 +10,7 @@
 
     <% conversation_thread.each do |message| %>
       <% sender = message.sender%>
-      <div class = "background"><!--  <%= message.created_at.strftime('%_m-%-d-%y,%l:%M') %>   --><b><%=sender.user_name%></b>: <%=message.content %></div><br>
+      <div class = "background" style="padding: 2%"><div id="chat"><!--  <%= message.created_at.strftime('%_m-%-d-%y,%l:%M') %>   --><b><%=sender.user_name%></b>: <%=message.content %></div></div><br>
     <% end %>
 
     <div style="color: white">Reply to this message:</div>
@@ -24,6 +24,3 @@
 
   <div><a href="/">Home</a></div>
   <div><a href="/user/logout">Logout</a></div>
-
-
-
