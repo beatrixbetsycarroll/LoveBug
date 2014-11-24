@@ -5,7 +5,7 @@ eye_color_choices = %w(green brown blue)
 race_choices = %w(martian venutian)
 std_choices = %w(HIV Herpes HPV Warts)
 religion_choices = %w(scientologist pastafarian luvism)
-
+genders = ["male", "female"]
 
 
 # create users
@@ -26,6 +26,8 @@ users = []
                 weight: rand(120..250),
                 height: rand(50..80),
                 photo: "http://placehold.it/250x250",
+                gender: genders.sample,
+                looking_for: genders.sample,
                 password: "a"
                 )
 end
