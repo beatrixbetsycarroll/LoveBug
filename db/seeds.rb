@@ -1,4 +1,4 @@
-require 'Faker'
+require 'faker'
 
 hair_color_choices = %w(blonde brown red)
 eye_color_choices = %w(green brown blue)
@@ -50,4 +50,3 @@ end
 users.each do |user|
   user.messages.create(content: Faker::Lorem.sentence(5), receiver_id: rand(1..10))
 end
-
