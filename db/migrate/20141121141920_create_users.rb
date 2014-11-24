@@ -19,6 +19,9 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :height
       t.integer :weight
 
+      t.string :gender
+      t.string :looking_for
+
       t.timestamps
     end
   end
