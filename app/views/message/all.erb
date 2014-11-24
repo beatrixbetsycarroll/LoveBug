@@ -3,10 +3,11 @@
 <div><h2>Sorry, no messages</h2></div>
 <% else %>
 
-  <h2><%=  User.find(session[:user_id]).user_name%>'s Messages</h2>
+  <h2>Hi, <%=  User.find(session[:user_id]).user_name%>. Here are your messages.</h2>
   <% @conversation_participant.each do |user| %>
+
     <% conversation_thread = @user_messages.select { |message| [message.sender, message.receiver].include? user }.sort_by(&:created_at) %>
-    <h3><a style="color: white" href=<%= user_page_url(user) %>><%= user.user_name %></a></h3>
+    <h3 style="color: white">conversation with <a style="color: white" href=<%= user_page_url(user) %>><%= user.user_name.capitalize %></a>:</h3>
 
     <% conversation_thread.each do |message| %>
       <% sender = message.sender%>
