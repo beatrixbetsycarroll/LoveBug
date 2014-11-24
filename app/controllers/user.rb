@@ -63,14 +63,16 @@ put '/user/:id/edit' do |id|
   redirect("user/#{@user.id}")
 end
 
-get '/user/:id/deactivate' do
+get '/user/:id/deactivate' do |id|
   protected!
+  @user = User.find(id)
   erb :'user/deactivate'
 end
 
 delete '/user/:id/deactivate' do |id|
   @user = User.find(id)
   @user.destroy
+  session[:user_id] = nil
   redirect('/')
 end
 

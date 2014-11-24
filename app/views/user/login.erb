@@ -2,6 +2,7 @@
 <%= display_errors %>
 
 <form action="/user/login" method="POST">
+  <h2><font color="blue">Current Users, Please <u>Log In:</u></font></h2>
   <h3>E-mail:</h3>
   <input name="user[email]" type="text">
   <h3>Username:</h3>
@@ -11,4 +12,10 @@
   <input type="submit" value="Login">
 </form>
 
+</div>
+
+<div class="container">
+  <h2><font color="blue">New Users, Please <u>Sign Up:</u></font></h2>
+  <a href="/user/new">SIGN UP!</a></div>
+</form>
 </div>
