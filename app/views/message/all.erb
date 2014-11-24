@@ -6,17 +6,17 @@
   <h2><%=  User.find(session[:user_id]).user_name%>'s Messages</h2>
   <% @conversation_participant.each do |user| %>
     <% conversation_thread = @user_messages.select { |message| [message.sender, message.receiver].include? user }.sort_by(&:created_at) %>
-    <h3><a href=<%= user_page_url(user) %>><%= user.user_name %></a></h3>
+    <h3><a style="color: white" href=<%= user_page_url(user) %>><%= user.user_name %></a></h3>
 
     <% conversation_thread.each do |message| %>
       <% sender = message.sender%>
-      <div><!--  <%= message.created_at.strftime('%_m-%-d-%y,%l:%M') %>   --><b><%=sender.user_name%></b>: <%=message.content %></div><br>
+      <div class = "background"><!--  <%= message.created_at.strftime('%_m-%-d-%y,%l:%M') %>   --><b><%=sender.user_name%></b>: <%=message.content %></div><br>
     <% end %>
 
-    <div>Reply to this message:</div>
+    <div style="color: white">Reply to this message:</div>
     <form action="/message/<%= user.id %>/new" method="POST">
       <textarea name="message[content]"></textarea>
-      <input type="submit" value="Send">
+      <input type="submit" value="Send" class="btn btn-danger">
     </form>
 
   <% end %>

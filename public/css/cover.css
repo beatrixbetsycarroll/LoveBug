@@ -3,10 +3,18 @@
  */
 
 /* Links */
-a,
+a {
+  color: #63A69F;
+}
+
+p a {
+  color: #fff;
+}
+
 a:focus,
 a:hover {
-  color: #fff;
+  color: #63A69F;
+  text-decoration: none;
 }
 
 /* Custom default button */
@@ -184,6 +192,11 @@ body h3 {
   .cover-container {
     width: 700px;
   }
+}
+
+textarea {
+  width: 100%;
+  height: 14em;
 }
 
 
