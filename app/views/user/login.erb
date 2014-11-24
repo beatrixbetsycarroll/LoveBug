@@ -1,14 +1,15 @@
-<div class="container">
+
 <%= display_errors %>
 
 <form action="/user/login" method="POST">
-  <h3>E-mail:</h3>
-  <input name="user[email]" type="text">
-  <h3>Username:</h3>
-  <input name="user[user_name]" type="text">
-  <h3>Password:</h3>
-  <input name="user[password]" type="password">
-  <input type="submit" value="Login">
+  <h3></h3>
+  <input name="user[email]" type="text" placeholder="Email">
+  <h3></h3>
+  <input name="user[user_name]" type="text" placeholder="Username">
+  <h3></h3>
+  <input name="user[password]" type="password" placeholder="Password">
+  <h3></h3>
+  <input class="btn btn-default" type="submit" value="Login">
 </form>
 
-</div>
+
